@@ -20,3 +20,20 @@ para compilar y generar dll
 ```sh
 dotnet build
 ```
+
+#### Para  dividir las imagenes 
+
+Dependencias para dividir 
+[split-image](https://pypi.org/project/split-image/) - Documentacion lib Split Image
+
+```sh
+pip install split-image
+```
+
+Divide la imagen en 1 fila  y dos columnas 
+
+```sh
+split-image imgpath.png 1 2
+```
+
+

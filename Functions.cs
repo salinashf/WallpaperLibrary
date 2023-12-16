@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace WallpaperLibrary
 {
@@ -8,7 +8,7 @@ namespace WallpaperLibrary
         {
             IDesktopWallpaper wallpaper = (IDesktopWallpaper)(new DesktopWallpaperClass());
             wallpaper.SetWallpaper(wallpaper.GetMonitorDevicePathAt((uint)indexMonitor), filePath);
-            return $"Load img  {filePath} over monitor {indexMonitor.ToString()}" ;
+            return $"Load img  {filePath} over monitor {indexMonitor.ToString()}";
         }
         public string SetWallPaperSeqn(string file)
         {
@@ -17,22 +17,17 @@ namespace WallpaperLibrary
             uint monitorTotal = wallpaper.GetMonitorDevicePathCount();
             for (uint i = 0; i < monitorTotal; i++)
             {
-                //Console.Write($"Load sqn img  {file} over monitor {i}");
                 wallpaper.SetWallpaper(wallpaper.GetMonitorDevicePathAt(i), String.Format(file, (i + 1)));
                 wallpaper.SetPosition(DesktopWallpaperPosition.Fill);
             }
 
-             return $"Load sqn img  {monitorTotal.ToString()} over monitor {String.Format(file, (monitorTotal + 1))}" ; 
+            return $"Load sqn img  {monitorTotal.ToString()} over monitor {String.Format(file, (monitorTotal + 1))}";
 
         }
 
-        public bool StartsWithUpper(string str)
+        public void ClearWallPaper()
         {
-            if (string.IsNullOrWhiteSpace(str))
-                return false;
-
-            char ch = str[0];
-            return char.IsUpper(ch);
+            CustomUser32.clearWallpaper();
         }
 
         /// <summary>
